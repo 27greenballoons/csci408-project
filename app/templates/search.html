@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %}
+{% load static %}
+
+{% block content %}
+{% if searched %}
+    <!-- VULNERABILITY: The use of {{ searched|safe }} is unsafe and can lead to XSS attacks. -->
+    <h1 style="text-align: center;">Your Search Results for {{ searched|safe }}</h1>
+
+    {% if locations %}
+        <ul style="text-align: center;">
+        {% for item in locations %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+
+    {% else %}
+        <h1>No results found.</p>
+    {% endif %}
+
+{% else %}
+    <p style="text-align: center;">Please enter a search term.</p>
+{% endif %}
+
+{% endblock %}
+
+

@@ -1,0 +1,39 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# === Django ===
+db.sqlite3
+*.sqlite3
+/media/
+/staticfiles/
+/static/
+/*.bak
+
+# === App + Project caches ===
+app/__pycache__/
+project/__pycache__/
+app/migrations/__pycache__/
+app/migrations/
+
+# === Environment / Config ===
+.venv/
+venv/
+ENV/
+env/
+.env
+.env.*
+
+# === IDEs / OS ===
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# === Django runtime files ===
+project/settings.py
+project/asgi.py
+project/wsgi.py

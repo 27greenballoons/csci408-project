@@ -112,6 +112,52 @@ A better example of how to handle these situations is seen in the contact form p
 by not including the | safe tag when placing data in the variables that insert stuff into the db (its implemented in a form differently, uses the form
 structure to make the HTML code easier and not have to worry about sanitizing inputs and such). 
 
-# Static VS Dynamic Analysis
+# Part 2: Static VS Dynamic Analysis
 
+**Main Points:**
+*1. Define static analysis. What is it? Why is it important in software security? Give one example of a tool used for static analysis.
+2. Define dynamic analysis. What is it? How does it differ from static analysis? Give one example scenario where dynamic analysis is preferred.*
+
+Static analysis and dynamic analysis can be compared to passive
+reconnaissance and active reconnaissance. Static analysis is not as in depth as dynamic, but it
+involves poking around a given file and gauging how to move forward while getting a basic
+understanding of how it works. Usually, it is hard to detect when passive reconnaissance and static
+analysis is occurring, as it is much less involved than its counterpart. Static analysis is essential for 
+software security because it finds vulnerabilities and errors in code usually before having to run it or deploy it. 
+It also requires less resources than dynamic analysis and can save money later on. **Ghidra** can be used as a 
+static analysis tool as it can decompile and organize malicious code that someone may not want to run, and makes
+it easier to reverse engineer code you have downloaded remotely. No one outside really knows when you're using static 
+analysis due to it being hard to detect. Dynamic analysis is more like active reconnaissance, where it is more aggressive and more clear that 
+something is being analyzed. In many cases, static analysis can be performed without running the file, 
+while dynamic analysis does require the executable to be ran. Despite this, static analysis can be done on a file or system that is consistently running.
+Dynamic analysis is usually preferred when the source code isn't avaliable or something is already running, or when something needs to be solved quickly. 
+It could also be when something outside/foreign is occuring. 
+
+# Part 3: Partner Reflection 
+
+**1. What strategies did you use to analyze your partners executable?**
+I started off by using strings, which turns executables into a readable format with 
+each part of the assembly code's headers to get an idea of what each func was named 
+and might do, I picked this up from NCL. After, I used ghidra and located the main func
+and looked through the estimated C code to see the overall structure of the code and where
+each other func was called. From there I looked at the other funcs and figured out what the code did. 
+
+**2. What insights did you gain from analyzing the shared executable?**
+I learned that the function was using two different shifting functions that took in different parameters
+to perform a caeser cipher encryption/decryption process. 
+
+**3. Describe one major challenge you encountered during this process.**
+One major challenge I faced was making sense of the encryption and decryption functions, but after
+taking a break and looking at it from a different angle later on, I figured out what the function
+was meant to do by using context clues and other parts of the code. 
+
+**4. How did your understanding of compiled binaries and disassembly evolve?**
+My understanding of compiled binaries and disassembly evolved because I realized that decompiled functions in C code dont give
+the full story of what is happening and doesn't always show the parameters of the function. I have to see what variables are 
+used in it and assume from there to make educated guesses on what is happening. 
+
+**5. If you could redo one part of your Ghidra work, what would you change and why?**
+I probably wouldn't change much, I would still do everything how I did it, but I would probably
+try to make use of Ghidra's other features like the flow chart and such to get a better understanding
+of the code I examined. 
 
